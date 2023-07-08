@@ -1,0 +1,25 @@
+.btn{
+    width: 5rem;
+    height: 2.2em;
+    color: black;
+    border: none;
+    margin: 0 0.5rem;
+}
+
+.btn:focus{
+    outline: none;
+}
+.btn-success{
+    background-color: #00A44E;
+    color: white;
+}
+
+.btn-warning{
+    background-color: #FF2060;
+    color: white;
+}
+
+.btn-primary{
+    background-color: #089C99;
+    color: white;
+}
