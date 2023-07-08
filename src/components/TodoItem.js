@@ -1,16 +1,25 @@
 import React from 'react'
+import PropTypes from "prop-types"
 import Button from './Button'
 
-const TodoItem = () => {
+const TodoItem = ({todo,hapus}) => {
+  const hapusById = id => {
+    hapus(id)
+  }
   return (
     <div style={todoItem}>
-      <p>This is task one</p>
+      <p>{todo.tittle}</p>
       <div>
         <Button text="Edit" variants="success"/>
-        <Button text="Delete" variants="warning"/>
+        <Button text="Delete" variants="warning" action={() =>hapusById(todo.id)}/>
       </div>
     </div>
   )
+}
+
+TodoItem.propTypes = {
+  todo:PropTypes.object.isRequired,
+  hapus: PropTypes.func
 }
 
 export default TodoItem
