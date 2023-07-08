@@ -4,6 +4,7 @@
     color: black;
     border: none;
     margin: 0 0.5rem;
+    border-radius: 10px;
 }
 
 .btn:focus{

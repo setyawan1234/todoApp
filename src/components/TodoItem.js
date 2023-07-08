@@ -23,5 +23,6 @@ const todoItem = {
   height: "3rem",
   padding: "0 1rem",
   justifyContent: "space-between",
-  margin: "0.5rem 0"
+  margin: "0.5rem 0",
+  borderRadius:"5px"
 }
