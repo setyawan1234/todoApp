@@ -3,11 +3,33 @@ import Button from './Button'
 import '../styles/FormInput.css'
 
 class FormInput extends React.Component{
+    state = {
+        text : ""
+    }
+    tambahData = e => {
+        this.setState({ text: e.target.value })
+    }
+
+    submit = e => {
+        e.preventDefault()
+        if(this.state.text !== ""){
+            this.props.tambah(this.state.text)
+        }
+        this.setState({
+            text: ""
+        })
+    }
     render(){
         return(
-            <form style={inputForm}>
-                <input placeholder="Input Task" style={input} type="text"/>
-                <Button text="Add" variants="primary"/>
+            <form style={inputForm} onSubmit={this.submit}>
+                <input 
+                placeholder="Input Task" 
+                style={input} 
+                value={this.state.text}
+                type="text" 
+                onChange={this.tambahData}
+                />
+                <Button text="Add" variants="primary" action={this.submit}/>
             </form>
         )
     }
