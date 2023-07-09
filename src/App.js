@@ -3,6 +3,7 @@ import React from 'react';
 import Button from './components/Button';
 import FormInput from './components/FormInput';
 import TodoItem from './components/TodoItem';
+import EditModal from './components/EditModal';
 
 class App extends React.Component {
   state = {
@@ -16,7 +17,20 @@ class App extends React.Component {
         id: 2,
         tittle: "Ngoding Lagi"
       }
-    ]
+    ],
+    isEdit : false
+  }
+
+  openPopUp = () => {
+    this.setState({
+      isEdit:true
+    })
+  }
+
+  closePopUp = () => {
+    this.setState({
+      isEdit:false
+    })
   }
   deleteTask = id => {
     this.setState({
@@ -44,12 +58,13 @@ class App extends React.Component {
         </div>
         <div className="list">
           {todos.map(item =>
-            <TodoItem key={item.id} todo={item} hapus={this.deleteTask}/>
+            <TodoItem key={item.id} todo={item} hapus={this.deleteTask} buka={this.openPopUp}/>
           )}
         </div>
         <div className="input-form">
           <FormInput tambah={this.addTask}/>
         </div>
+        <EditModal edit={this.state.isEdit} tutup={this.closePopUp}/>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from "prop-types"
 import Button from './Button'
 
-const TodoItem = ({todo,hapus}) => {
+const TodoItem = ({todo,hapus,buka}) => {
   const hapusById = id => {
     hapus(id)
   }
@@ -10,7 +10,7 @@ const TodoItem = ({todo,hapus}) => {
     <div style={todoItem}>
       <p>{todo.tittle}</p>
       <div>
-        <Button text="Edit" variants="success"/>
+        <Button text="Edit" variants="success" action={buka}/>
         <Button text="Delete" variants="warning" action={() =>hapusById(todo.id)}/>
       </div>
     </div>

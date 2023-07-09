@@ -1,0 +1,31 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    top:0;
+    left: 0;
+}
+
+.modal-box{
+    width: 40%;
+    height: 10rem;
+    background-color: #fff;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    padding: 35px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.modal-box h3{
+    font-family: sans-serif;
+    color: #2da4f8;
+}
+
+.modal-box input{
+    margin: 0.5rem 0;
+    width: 80%;
+    height: 2rem;
+}
