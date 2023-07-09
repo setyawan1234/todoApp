@@ -10,7 +10,7 @@ const TodoItem = ({todo,hapus,buka}) => {
     <div style={todoItem}>
       <p>{todo.tittle}</p>
       <div>
-        <Button text="Edit" variants="success" action={buka}/>
+        <Button text="Edit" variants="success" action={() => buka(todo.id, todo.tittle)}/>
         <Button text="Delete" variants="warning" action={() =>hapusById(todo.id)}/>
       </div>
     </div>

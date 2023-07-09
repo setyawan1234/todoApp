@@ -17,6 +17,8 @@
     padding: 35px;
     text-align: center;
     transform: translate(-50%, -50%);
+    animation-name: tes;
+    animation-duration: 0.5s;
 }
 
 .modal-box h3{
@@ -28,4 +30,13 @@
     margin: 0.5rem 0;
     width: 80%;
     height: 2rem;
+}
+
+@keyframes tes {
+    from{
+        top:-1px;
+    }to{
+        
+        transform: translate(-50%,-50%);
+    }
 }

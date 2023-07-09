@@ -18,12 +18,44 @@ class App extends React.Component {
         tittle: "Ngoding Lagi"
       }
     ],
-    isEdit : false
+    isEdit : false,
+    editData : {
+      id: "",
+      tittle: ""
+    }
   }
 
-  openPopUp = () => {
+  update = () => {
+    const {id, tittle} = this.state.editData
+    const newData = {id,tittle}
+    const newTodos = this.state.todos
+    newTodos.splice((id-1), 1, newData)
     this.setState({
-      isEdit:true
+      todos : newTodos,
+      isEdit:false,
+      editData: {
+        id:"",
+        tittle:""
+      }
+    })
+  }
+
+  setTittle = e => {
+    this.setState({
+      editData: {
+        ...this.state.editData,
+        tittle : e.target.value
+      }
+    })
+  }
+
+  openPopUp = (id, data) => {
+    this.setState({
+      isEdit:true,
+      editData : {
+        id,
+        tittle:data
+      }
     })
   }
 
@@ -64,7 +96,13 @@ class App extends React.Component {
         <div className="input-form">
           <FormInput tambah={this.addTask}/>
         </div>
-        <EditModal edit={this.state.isEdit} tutup={this.closePopUp}/>
+        <EditModal 
+          edit={this.state.isEdit} 
+          tutup={this.closePopUp} 
+          change={this.setTittle} 
+          data={this.state.editData}
+          update={this.update}
+        />
       </div>
     );
   }
